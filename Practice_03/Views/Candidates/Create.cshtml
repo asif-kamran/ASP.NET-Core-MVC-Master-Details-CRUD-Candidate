@@ -1,0 +1,46 @@
+﻿@model CandidateVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="alert alert-info">Candidate info</h2>
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="row mb-2">
+                <label asp-for="CandidateName"></label>
+                <input asp-for="CandidateName" class="form-control"/>
+            </div>
+            <div class="row mb-2">
+                <label asp-for="DateOfBirth"></label>
+                <input asp-for="DateOfBirth" type="date" class="form-control" />
+            </div>
+            <div class="row mb-2">
+                <label asp-for="Phone"></label>
+                <input asp-for="Phone" class="form-control" />
+            </div>
+            <div class="row mb-2">
+                <label asp-for="ImageFile"></label>
+                <input asp-for="ImageFile" class="form-control" />
+            </div>
+            <div class="row mb-2">
+                <label asp-for="Fresher"></label>
+                @Html.CheckBoxFor(x=>x.Fresher)
+            </div>
+        </div>
+        <div class="col-6">
+            <h2 class="alert alert-info">Skill</h2>
+            <a id="btnPlus" class="btn btn-primary mb-2">Add</a>
+            <div id="container">
+                <script>
+                    LoadData()
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-outline-primary">Save</button>
+    </div>
+</form>
+
